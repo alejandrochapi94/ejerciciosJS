@@ -1,0 +1,1 @@
+console.log('Directorio actual de trabajo:', process.cwd());
