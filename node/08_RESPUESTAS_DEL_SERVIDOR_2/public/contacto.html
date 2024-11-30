@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pantalla contacto</h1>
+    
+    <h3>Datos traidos desde el servidor a index y luego a esta página desde localStorage o sessionStorage</h3>
+
+    <script>
+        const datos = JSON.parse(window.localStorage.getItem('datos'));
+        console.log(datos, typeof(datos));
+        //Crear un elemento p y mostrar el valor de datos
+        const miElemento = document.createElement('p');
+        miElemento.textContent = datos;
+        document.body.appendChild(miElemento);
+
+        
+    </script>
+</body>
+</html>

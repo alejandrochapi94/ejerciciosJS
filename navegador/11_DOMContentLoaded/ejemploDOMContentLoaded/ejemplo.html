@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo DOMContentLoaded</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    #miImagen {
+      width: 200px;
+      height: 150px;
+      border: 1px solid #ccc;
+      display: none; /* Inicialmente oculta */
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Manipulación del DOM con DOMContentLoaded</h1>
+  <p id="miParrafo">Este texto será modificado.</p>
+  <img id="miImagen" src="https://via.placeholder.com/200x150" alt="Placeholder Image">
+  <button id="miBoton">Cambiar texto</button>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
