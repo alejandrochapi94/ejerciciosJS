@@ -23,12 +23,12 @@ document.getElementById("obtener-datos").addEventListener("click", () => {
         const errorData = await response.json();
         console.error(errorData);
         return;
-      } else if (response.status === 203) {
-        console.log('Error del servidor (500 Internal Server Error)');
+      } else if (response.status === 420) {
+        console.log('Error del servidor (420 Internal Server Error)');
         alert("Hubo un error en el servidor.");
         return;
       } else {
-        console.log(`Código de estado: ${response.status}`);
+        console.log(`Código de estado no coincide: ${response.status}`);
         //Código por si no devuelve ningun estado válido
         return;
       }

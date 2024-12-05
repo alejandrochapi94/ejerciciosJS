@@ -1,18 +1,19 @@
-const users = []; // Array temporal como "base de datos" (para propósitos de demostración)
+const users = [1,2,3]; // Array temporal como "base de datos" (para propósitos de demostración)
 
 // Obtener todos los usuarios
 
 const path = require('path');
 
 exports.getAllUsers = (req, res) => {
-    res.status(202).json(users);
+    res.status(500).json(users);
+    //res.json(users);
 };
 
 // Obtener un usuario por ID
 exports.getUserById = (req, res) => {
   const user = users.find(u => u.id === parseInt(req.params.id));
   if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
-  res.status(202).json(user);
+  res.status(500).json(user);
 };
 
 // Crear un nuevo usuario

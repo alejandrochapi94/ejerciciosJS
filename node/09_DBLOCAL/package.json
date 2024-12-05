@@ -1,0 +1,22 @@
+{
+  "name": "09_dblocal",
+  "version": "1.0.0",
+  "description": "El paquete `db-local` es una herramienta sencilla para simular una base de datos en memoria o como archivo local, ideal para realizar pruebas o prototipos. Aquí tienes una guía completa para usarlo:",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js",
+    "dev": "nodemon script.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "db-local": "^3.1.0",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

@@ -2,10 +2,10 @@ const ruta = 'http://localhost:3000/api/users';
 fetch(ruta, {cache: 'no-cache'})
   .then(response => {
       console.log(response.status);
+
     if (response.status === 202) {
       console.log('La petición fue aceptada (202 Accepted)');
       alert("Tu solicitud se está procesando.");
-      window.location.href = 'contacto.html';
 
       //redirigimos a la página contacto.html en seguida de la petición
 
@@ -18,13 +18,14 @@ fetch(ruta, {cache: 'no-cache'})
         console.error(errorData);
       });
 
-    } else if (response.status === 203) {
+    } else if (response.status === 500) {
       console.log('Error del servidor (500 Internal Server Error)');
       // Manejar el error 500
       alert("Hubo un error en el servidor.");
 
     } else {
       console.log(`Código de estado: ${response.status}`);
+      console.log("Codigo de estado diferente")
       // Manejar otros códigos de estado o la respuesta exitosa por defecto.
       return response.json().then(data => {  // Procesa la respuesta como JSON
         console.log(data); // O muestra los datos al usuario

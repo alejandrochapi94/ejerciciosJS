@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ejemplo LocalStorage, SessionStorage y Cookies</title>
+</head>
+<body>
+
+<h1>Ejemplo de Almacenamiento Web</h1>
+
+<script>
+  // Local Storage
+  localStorage.setItem('nombre', 'Maria');
+  let nombreLS = localStorage.getItem('nombre');
+  console.log("LocalStorage - Nombre:", nombreLS); // Output: Maria
+
+  // Session Storage
+  sessionStorage.setItem('ciudad', 'Madrid');
+  let ciudadSS = sessionStorage.getItem('ciudad');
+  console.log("SessionStorage - Ciudad:", ciudadSS); // Output: Madrid
+
+
+  // Cookies (función para obtener una cookie)
+  function getCookie(nombre) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${nombre}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  // Crear una cookie
+  document.cookie = "idioma=es; expires=Thu, 18 Dec 2024 12:00:00 UTC; path=/";
+  let idiomaCookie = getCookie('idioma');
+  console.log("Cookie - Idioma:", idiomaCookie); // Output: es
+
+
+  // Ejemplo de uso combinado (simulación de un carrito de compras)
+
+  // Agregar un producto al carrito (sessionStorage) - Temporal para la sesión
+  let carrito = sessionStorage.getItem('carrito');
+  if (!carrito) {
+    carrito = [];
+  } else {
+    carrito = JSON.parse(carrito); // Convertir de string a array
+  }
+  carrito.push('Producto A');
+  sessionStorage.setItem('carrito', JSON.stringify(carrito)); // Convertir a string para guardar
+
+  // Guardar la preferencia de mostrar u ocultar el carrito (localStorage) - Persistente
+  let mostrarCarrito = document.getElementById('mostrarCarrito').checked;
+  localStorage.setItem('mostrarCarrito', mostrarCarrito);
+
+
+
+  // Mostrar el contenido del carrito (desde sessionStorage)
+  function mostrarProductosCarrito() {
+      let carrito = sessionStorage.getItem('carrito');
+      if (carrito) {
+          carrito = JSON.parse(carrito);
+          let listaCarrito = document.getElementById('listaCarrito');
+          listaCarrito.innerHTML = ''; // Limpiar la lista
+
+          carrito.forEach(producto => {
+              let li = document.createElement('li');
+              li.textContent = producto;
+              listaCarrito.appendChild(li);
+          });
+      }
+  }
+
+  mostrarProductosCarrito();
+
+
+</script>
+
+<input type="checkbox" id="mostrarCarrito" checked> Mostrar Carrito
+<ul id="listaCarrito"></ul>
+
+
+
+</body>
+</html>

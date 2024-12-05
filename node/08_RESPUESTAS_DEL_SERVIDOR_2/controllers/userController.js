@@ -1,4 +1,4 @@
-const users = [1,2,3]; // Array temporal como "base de datos" (para propósitos de demostración)
+const users = [1,2,3,4]; // Array temporal como "base de datos" (para propósitos de demostración)
 
 // Obtener todos los usuarios
 
